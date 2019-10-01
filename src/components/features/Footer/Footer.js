@@ -1,8 +1,7 @@
 import React from 'react';
 import MainMenu from '../../layouts/MainMenu/MainMenu';
 
-
-class NavBar extends React.Component {
+class Footer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -11,16 +10,17 @@ class NavBar extends React.Component {
                 { path: '/', title: 'Home' },
                 { path: '/faq', title: 'FAQ' },
                 { path: '/regulamin', title: 'Regulamin' },
-                { path: '/kontakt', title: 'Kontakt' }
+                { path: '/contact', title: 'Kontakt' },
             ]
         };
     }
+
     render() {
         const { links } = this.state;
 
         return (
-            <nav className="navbar">
-                <span>Logo</span>
+            <nav className='navbar'>
+                <p>Copyright by ZICHERKA 2019</p>
                 <MainMenu links={links} />
             </nav>
         );
@@ -28,4 +28,4 @@ class NavBar extends React.Component {
 
 }
 
-export default NavBar;
+export default Footer;
