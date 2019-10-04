@@ -1,6 +1,6 @@
 export const products = [
     {
-        id: 1,
+        id: '1',
         name: "Folkstar",
         image: "src/images/products/1/folk.jpg",
         additionalInfo: "",
@@ -9,7 +9,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 2,
+        id: '2',
         name: "Stare złoto",
         image: "src/images/products/2/zloto.jpg",
         additionalInfo: "Nowość",
@@ -18,7 +18,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 3,
+        id: '3',
         name: "Gwiezdny pył",
         image: "src/images/products/3/srebro.jpg",
         additionalInfo: "Ostatnia sztuka",
@@ -27,7 +27,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 4,
+        id: '4',
         name: "Różowo mi",
         image: "src/images/products/4/roz.jpg",
         additionalInfo: "",
@@ -36,7 +36,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 5,
+        id: '5',
         name: "PasteLOVE",
         image: "src/images/products/5/pastel.jpg",
         additionalInfo: "Nowość",
@@ -45,7 +45,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 6,
+        id: '6',
         name: "Lazurowe wybrzeże",
         image: "src/images/products/6/lazur.jpg",
         additionalInfo: "Bestseller",
@@ -54,7 +54,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 7,
+        id: '7',
         name: "Czarne srebro",
         image: "src/images/products/7/czarnesrebro.jpg",
         additionalInfo: "Nowość",
@@ -63,7 +63,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 8,
+        id: '8',
         name: "Różowa perła",
         image: "src/images/products/8/rozowaperla.jpg",
         additionalInfo: "",
@@ -72,7 +72,7 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 9,
+        id: '9',
         name: "Miętowa perła",
         image: "src/images/products/9/mieta.jpg",
         additionalInfo: "Promocja",
@@ -81,16 +81,16 @@ export const products = [
         currency: "PLN",
     },
     {
-        id: 10,
+        id: '10',
         name: "Kwiat maku",
-        image: "src/images/products/10/mak.jpg",
+        image: "/images/products/10/mak.jpg",
         additionalInfo: "",
         info: "Naszyjnik imitujący korale wykonany ręcznie ze sznurka bawełnianego o grubości 5mm w kolorze kwiatu maku (połączenie odcieni koloru czerwonego).",
         price: 45,
         currency: "PLN",
     },
     {
-        id: 11,
+        id: '11',
         name: "Niezapominajka",
         image: "src/images/products/11/chaber.jpg",
         additionalInfo: "",
