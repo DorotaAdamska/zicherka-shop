@@ -1,6 +1,6 @@
 import React from 'react';
 import MainMenu from '../../layouts/MainMenu/MainMenu';
-
+import './NavBar.scss';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class NavBar extends React.Component {
 
         return (
             <nav className="navbar">
-                <span>Logo</span>
+                <img className='logo' src='logo_zicherka.png' alt={'ZICHERKA'}/>
                 <MainMenu links={links} />
             </nav>
         );

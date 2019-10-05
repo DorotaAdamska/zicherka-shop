@@ -1,15 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import ProductsList from '../ProductsList/ProductsList';
-import { Alert } from 'reactstrap';
+import { Alert, Spinner } from 'reactstrap';
 
 class Products extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-  }
 
   componentDidMount() {
     const { loadProducts, resetRequest } = this.props;
@@ -29,7 +23,7 @@ class Products extends React.Component {
     if(request.pending || request.success === null)
       return (
         <div>
-          spinner
+        <Spinner color="info" />
         </div>
       );
     if(!request.pending && request.error !== null)
@@ -43,10 +37,12 @@ class Products extends React.Component {
 Products.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      additionalInfo: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
+        additionalInfo: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired
     })
   ),
 };

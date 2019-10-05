@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Card, CardImg, CardText, CardBody, CardTitle, } from 'reactstrap';
-
+import './ProductSummary.scss';
 
 const ProductSummary = ({ name, price, additionalInfo, image, currency }) => (
     <div className={'product-summary'}>

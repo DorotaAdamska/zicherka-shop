@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap');
+
+$color-text: #333;
+$color-text-light: #666;
+$color-text-bright: #fff;
+$color-primary: #028da8;
+$color-secondary: #b51457;
+$color-background: #fff;
+
+
+
+$color-textfield-border: #ddd;
+$color-editor-border: #ccc;
+$color-editor-border-light: #ddd;
+
+$font-header: 'Lato', sans-serif;
+$font-text: 'Lato', sans-serif;
+
+$radius: 5px;
+$base-size: 15px;
+$transition: all 0.5s;
+
+@mixin p-el($element) {
+  &:#{$element}, &::#{$element} {
+    position: absolute;
+    @content;
+  }
+}
