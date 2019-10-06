@@ -2,49 +2,76 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import ProductsList from '../ProductsList/ProductsList';
 import { Alert, Spinner } from 'reactstrap';
+import Pagination from "../../common/Pagination/Pagination";
+
+
 
 class Products extends React.Component {
-
-  componentDidMount() {
-    const { loadProducts, resetRequest } = this.props;
-    resetRequest();
-    loadProducts();
-  }
-
-  render() {
-    const { products, request } = this.props;
-
-    if(!request.pending && request.success && products.length > 0)
-      return (
-        <div>
-          <ProductsList products={products} />
-        </div>
-      );
-    if(request.pending || request.success === null)
-      return (
-        <div>
-        <Spinner color="info" />
-        </div>
-      );
-    if(!request.pending && request.error !== null)
-      return <Alert color="danger">{request.error}</Alert>;
-    if(!request.pending && request.success && products.length === 0)
-      return <Alert color="info">Brak produktów</Alert>;
-  }
-
-};
+    
+    componentDidMount() {
+        const { loadProductsByPage, productsPerPage, initialPage } = this.props;
+        loadProductsByPage(initialPage || 1, productsPerPage);
+      };
+    
+      
+      loadProductsPage = (page) => {
+        const { loadProductsByPage, productsPerPage } = this.props;
+        loadProductsByPage(page, productsPerPage);
+      };
+    
+      render() {
+        let { products, request, pages, pagination, presentPage } = this.props;
+        if (pagination === undefined) {
+          pagination = true;
+        }
+    
+        if (request.pending === false && request.success === true && products.length > 0) {
+          return (
+            <div>
+              <ProductsList products={products} />
+              {pagination && <Pagination pages={pages} initialPage={presentPage} onPageChange={this.loadProductsPage} />}
+            </div>
+          );
+        }
+    
+        if (request.pending === true || request.success === null) {
+          return (
+            <div>
+              <Spinner />
+            </div>
+          )
+        }
+    
+        if (!request.pending && request.error !== null) {
+          return (
+            <div>
+              <Alert variant='error' children={request.error} />
+            </div>
+          )
+        }
+    
+        if (request.pending === false && request.success === true && products.length === 0) {
+          return (
+            <div>
+              <Alert variant='info' children='-- brak produktów --' />
+            </div>
+          )
+        }
+      }
+    }
 
 Products.propTypes = {
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        additionalInfo: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired,
-        currency: PropTypes.string.isRequired
-    })
-  ),
-};
+    products: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            additionalInfo: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+            image: PropTypes.string.isRequired,
+            currency: PropTypes.string.isRequired
+        })
+    ),
+    loadProductsByPage: PropTypes.func.isRequired,
+  };
 
 export default Products;
