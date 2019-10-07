@@ -17,6 +17,9 @@ body {
   overflow-y: scroll;
 }
 
+.container-fluid {
+    margin: 0 $base-size;
+}
 a, a:hover, a:visited {
   text-decoration: none;
 }

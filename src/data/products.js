@@ -99,3 +99,5 @@ export const products = [
         currency: "PLN",
     },
 ];
+
+export default products;

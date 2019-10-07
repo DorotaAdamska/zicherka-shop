@@ -1,10 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import ProductsList from '../ProductsList/ProductsList';
-import { Alert, Spinner } from 'reactstrap';
-import Pagination from "../../common/Pagination/Pagination";
-
-
+import { Alert } from 'reactstrap';
+import Pagination from '../../common/Pagination/Pagination';
+import Spinner from '../../common/Spinner/Spinner';
 
 class Products extends React.Component {
     
@@ -25,11 +24,10 @@ class Products extends React.Component {
           pagination = true;
         }
     
-        if (request.pending === false && request.success === true && products.length > 0) {
+        if (request.pending === false && request.success === true) {
           return (
             <div>
               <ProductsList products={products} />
-              {pagination && <Pagination pages={pages} initialPage={presentPage} onPageChange={this.loadProductsPage} />}
             </div>
           );
         }
@@ -53,7 +51,7 @@ class Products extends React.Component {
         if (request.pending === false && request.success === true && products.length === 0) {
           return (
             <div>
-              <Alert variant='info' children='-- brak produktów --' />
+              <Alert color='info' children='-- brak produktów --' />
             </div>
           )
         }

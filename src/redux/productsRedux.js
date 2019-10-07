@@ -97,7 +97,7 @@ export const loadProductsByPageRequest = (page, productsPerPage) => {
           productsPerPage,
           presentPage: page,
         };
-  
+;  
         setTimeout(() => {
           dispatch(loadProductsByPage(payload));
           dispatch(endRequest());
