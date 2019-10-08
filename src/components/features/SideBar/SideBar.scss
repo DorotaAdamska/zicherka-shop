@@ -1,5 +1,22 @@
 @import '../../../styles/global.scss';
 
-.sideBarHead {
-    padding: 20px 0;
+.side-bar {
+    padding: $base-size;
+
+    h3 {
+        font-size: 1.2em;
+        padding-bottom: 1.5*$base-size;
+    }
+    .side-bar-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        background-color: $color-primary;
+        margin: 0.5*$base-size;
+        min-width: 150px;
+        border: 1px solid $color-primary;
+    
+    }
 }

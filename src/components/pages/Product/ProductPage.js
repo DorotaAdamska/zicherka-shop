@@ -1,8 +1,9 @@
 import React from 'react';
+import SingleProduct from '../../features/SingleProduct/SingleProductContainer';
 
 const ProductPage = () => (
   <div>
-    <h1>Product</h1>
+    <SingleProduct />
   </div>
 );
 

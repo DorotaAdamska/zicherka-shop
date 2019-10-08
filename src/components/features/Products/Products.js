@@ -23,11 +23,12 @@ class Products extends React.Component {
         if (pagination === undefined) {
           pagination = true;
         }
-    
-        if (request.pending === false && request.success === true) {
+    console.log(request, products)
+        if (request.pending === false && request.success === true && products.length > 0) {
           return (
             <div>
               <ProductsList products={products} />
+              {pagination && <Pagination pages={pages} initialPage={presentPage} onPageChange={this.loadProductsPage} />}
             </div>
           );
         }
