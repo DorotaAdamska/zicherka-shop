@@ -9,16 +9,15 @@ class SideBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: products,
-            direction: 'asc'
-            
+            products: products,
+            direction: 'asc'  
         };
-
-    }
+        this.sortBy = this.sortByPrice.bind(this);
+      }
 
     sortByPrice(direction) {
         this.setState({
-            data: products.sort((a, b) => {
+            products: products.sort((a, b) => {
                 if (direction === 'asc') {
                     return parseFloat(a['price']) - parseFloat(b['price'])
 ;                } else if (direction === 'desc') {
@@ -26,13 +25,13 @@ class SideBar extends React.Component {
                 } else {
                     return 0;
                 }
-
             })
         });
     }
+
     sortByTitle(direction) {
         this.setState({
-            data: products.sort((a, b) => {
+            products: products.sort((a, b) => {
                 if (direction === 'asc') {
                     return a['name'].localeCompare(b['name'])
                 } else if (direction === 'desc') {

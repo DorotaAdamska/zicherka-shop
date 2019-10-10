@@ -9,6 +9,8 @@ import Contact from './components/pages/Contact/ContactPage';
 import Faq from './components/pages/Faq/FaqPage';
 import Regulations from './components/pages/Regulations/RegulationsPage';
 import Product from './components/pages/Product/ProductPage';
+import Cart from './components/pages/Cart/CartPage';
+
 
 class App extends React.Component {
 
@@ -21,6 +23,7 @@ class App extends React.Component {
             <Route path="/regulamin" exact component={Regulations} />
             <Route path="/kontakt" exact component={Contact} />
             <Route path="/product/:id" component={Product} />
+            <Route path="/cart" exact component={Cart} />
             <Route component={NotFound} />
             </Switch>
         </MainLayout>

@@ -3,10 +3,13 @@ import thunk from 'redux-thunk';
 
 // import reducers
 import products from './productsRedux';
+import cart from './cartRedux';
+
 
 // combine reducers
 const rootReducer = combineReducers({
   products,
+  cart
 });
 
 const store = createStore(

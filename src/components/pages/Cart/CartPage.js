@@ -1,8 +1,10 @@
 import React from 'react';
+import Cart from '../../features/Cart/CartContainer';
 
 const CartPage = () => (
-  <div>
-    <h1>Cart</h1>
+    <div className="content clearfix">
+    <h1>Koszyk</h1>
+    <Cart />
   </div>
 );
 

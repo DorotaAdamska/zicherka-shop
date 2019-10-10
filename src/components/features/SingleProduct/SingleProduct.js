@@ -1,7 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Spinner from '../../common/Spinner/Spinner';
-import { Alert, Card, CardImg, CardText, CardBody, CardTitle, Button  } from 'reactstrap';
+import { Alert, Card, CardImg, CardText, CardBody, CardTitle, Button, } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class SingleProduct extends React.Component {
 
@@ -17,17 +18,18 @@ class SingleProduct extends React.Component {
         resetRequest();
         loadSingleProduct(match.params.id);
       }
-    //  onAddToCart = () => {
-    //    const { addProductToCart, match } = this.props;
-     //   addProductToCart(match.params.id);
-     //   this.toggleModal();
-   //   }
+
+      addToCart = () => {
+        const { addProductToCart, match } = this.props;
+        addProductToCart(match.params.id);
+        this.toggleModal();
+      }
     
-     // toggleModal = () => {
-      //  this.setState(prevState => ({
-      //    modal: !prevState.modal
-      //  }));
-    //  }
+      toggleModal = () => {
+        this.setState(prevState => ({
+          modal: !prevState.modal
+        }));
+      }
     
       render() {
         const { singleProduct, request } = this.props;
@@ -44,12 +46,19 @@ class SingleProduct extends React.Component {
             <CardText>{product.info}</CardText>
             <CardText>{product.additionalInfo}</CardText>
             <CardText>{product.price} {product.currency}</CardText>
-            <Button color={'secondary'}>Add to cart</Button>
+            <Button color={'secondary'}onClick={() => this.addToCart()}>Dodaj do koszyka</Button>
         </CardBody>
     </Card>
+    <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+            <ModalBody>
+              Produkt został dodany do koszyka
+            </ModalBody>
+            <ModalFooter>
+              <Button color="secondary" onClick={this.toggleModal}>Zamknij</Button>
+            </ModalFooter>
+          </Modal>
 </div>
-);
-        else if(request.pending || request.success === null) {
+);        else if(request.pending || request.success === null) {
         return (
             <div>
                 <Spinner/>
@@ -80,7 +89,6 @@ class SingleProduct extends React.Component {
     
     }
 }
-    
     SingleProduct.propTypes = {
       singleProduct: PropTypes.shape({
         id: PropTypes.string.isRequired,

@@ -20,7 +20,7 @@ class NavBar extends React.Component {
 
         return (
             <nav className="navbar">
-                <img className='logo' src='logo_zicherka.png' alt={'ZICHERKA'}/>
+                <img className='logo' src='/logo_zicherka.png' alt={'ZICHERKA'}/>
                 <MainMenu links={links} />
             </nav>
         );
