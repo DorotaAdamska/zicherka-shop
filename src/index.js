@@ -7,7 +7,6 @@ import store from './redux/store';
 import './styles/global.scss';
 
 
-
 const Root = () => (
     <Provider store={store}>
         <Router>

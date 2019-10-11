@@ -10,7 +10,7 @@ class Footer extends React.Component {
                 { path: '/', title: 'Home' },
                 { path: '/faq', title: 'FAQ' },
                 { path: '/regulamin', title: 'Regulamin' },
-                { path: '/contact', title: 'Kontakt' },
+                { path: '/kontakt', title: 'Kontakt' },
             ]
         };
     }

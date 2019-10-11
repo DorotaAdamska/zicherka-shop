@@ -1,5 +1,7 @@
 import React from 'react';
 import MainMenu from '../../layouts/MainMenu/MainMenu';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import './NavBar.scss';
 
 class NavBar extends React.Component {
@@ -11,7 +13,9 @@ class NavBar extends React.Component {
                 { path: '/', title: 'Home' },
                 { path: '/faq', title: 'FAQ' },
                 { path: '/regulamin', title: 'Regulamin' },
-                { path: '/kontakt', title: 'Kontakt' }
+                { path: '/kontakt', title: 'Kontakt' },
+                { path: '/cart', title: <FontAwesomeIcon
+                icon={faShoppingBasket} />}
             ]
         };
     }

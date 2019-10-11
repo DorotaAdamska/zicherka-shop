@@ -1,20 +1,29 @@
 @import 'src/styles/settings.scss';
 
-  
-
 .product-summary {
-  border-bottom: 1px solid $color-textfield-border;
-  padding: $base-size;
-  margin-bottom: $base-size;
-  margin-left: -$base-size;
-  transition: .2s;
-  cursor: pointer;
-}
 
-.product-summary:hover {
-  margin-left: -$base-size*2;
-  margin-top: -$base-size / 5;
-  border-radius: $radius;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding-left: $base-size * 1.5;
-}
+    display: inline-block;
+        .card {
+            border-bottom: 1px solid $color-textfield-border;
+            padding: $base-size;
+            margin-bottom: $base-size;
+            margin-left: -$base-size;
+            text-align: center;
+   
+            .card-body {
+
+                .additional-info {
+                    color: $color-secondary;
+                    font-weight: 300;
+                }
+
+                .btn-secondary {
+                    @include button;
+                }
+
+                .card-title {
+                    font-weight: bold;
+                }
+            }
+        }    
+    }

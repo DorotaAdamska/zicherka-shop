@@ -18,10 +18,24 @@ body {
 }
 
 .container-fluid {
-    margin: 0 $base-size;
+    padding: 0 $base-size;
 }
 a, a:hover, a:visited {
   text-decoration: none;
 }
+
+h3 {
+  padding-left: $base-size;
+  padding-bottom: $base-size;
+}
+
+.alert-info{
+color: $color-text-light;
+}
+
+.content {
+  padding: $base-size;
+}
+
 
 @import './typography.scss';

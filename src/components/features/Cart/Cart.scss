@@ -1,0 +1,31 @@
+@import 'src/styles/settings.scss';
+
+.cart {
+    padding: 2*$base-size;
+
+
+    table {
+background-color: $color-background-grey;
+color: $color-text;
+    
+thead {
+    background-color: $color-primary;
+    color: white;  
+}
+
+.btn-secondary {
+    @include button
+}
+.cart-summary {
+    font-weight: bold;
+}
+
+.items-quantity {
+    margin: 0 $base-size;
+}
+    }
+
+    .btn-secondary {
+        @include button
+    } 
+}

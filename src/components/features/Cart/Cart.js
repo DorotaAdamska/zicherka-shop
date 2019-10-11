@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Alert, Row, Col, Table, Button, Input } from 'reactstrap';
 import CartList from './CartList';
+import './Cart.scss';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -16,11 +17,9 @@ class Cart extends React.Component {
 
   componentWillUnmount() {
     const { showOrderConfirmation } = this.state;
-    const { clearCart } = this.props;
 
     //wyczyszczenie koszyka
     if(showOrderConfirmation) {
-      clearCart();
       this.setState({ showOrderConfirmation: false });
     }
   }
@@ -46,7 +45,6 @@ class Cart extends React.Component {
   handleRemoveDiscountCode = () => {
     const { addDiscountCode } = this.props;
 
-    //usuniecie kodu
     this.setState({
       discountCode: ''
     });
@@ -85,7 +83,7 @@ class Cart extends React.Component {
           onChange={(e) => this.handleChangeDiscountCode(e)}
           value={discountCode}
         />
-        discountButton = <Button onClick={() => this.handleAddDiscountCode()} size="sm">Zatwierdź</Button>;
+        discountButton = <Button onClick={() => this.handleAddDiscountCode()} size="sm">ZATWIERDŹ</Button>;
       }
       else
       {
@@ -96,7 +94,7 @@ class Cart extends React.Component {
         }
         else
         {
-          if(cart.discountCode && cart.discount === 0) {  //invalid code
+          if(cart.discountCode && cart.discount === 0) {  
             discountText = 'Nieprawidłowy kod';
           }
         }
@@ -105,13 +103,13 @@ class Cart extends React.Component {
       content = <div className="cart">
         <Row>
           <Col>
-            <Table dark responsive>
+            <Table>
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Produkt</th>
+                  <th>Lp.</th>
+                  <th className="text-left">Produkt</th>
                   <th className="text-right">Cena</th>
-                  <th>Ilość</th>
+                  <th className="text-left">Ilość</th>
                   <th className="text-right">Wartość</th>
                   <th></th>
                 </tr>
@@ -141,7 +139,7 @@ class Cart extends React.Component {
                     {discountButton}
                   </td>
                 </tr>
-                <tr>
+                <tr className='cart-summary'>
                   <td colSpan="4" className="text-right">DO ZAPŁATY:</td>
                   <td className="text-right">{cart.total + cart.discountAmount}</td>
                   <td></td>
@@ -153,9 +151,9 @@ class Cart extends React.Component {
         <Row>
           <Col>
             { showOrderConfirmation ?
-              <Alert color="success">Twoje zamówienie zostało przekazane do realizacji</Alert> :
+              <Alert color="info">Twoje zamówienie zostało przekazane do realizacji</Alert> :
               <div className="text-right">
-                <Button onClick={() => this.handleOrderConfirmation()} size="lg" color="primary">Zapłać</Button>
+                <Button onClick={() => this.handleOrderConfirmation()} size="lg">Zapłać</Button>
               </div>
             }
           </Col>

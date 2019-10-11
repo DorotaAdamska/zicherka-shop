@@ -6,6 +6,7 @@ $color-text-bright: #fff;
 $color-primary: #028da8;
 $color-secondary: #b51457;
 $color-background: #fff;
+$color-background-grey: #fafafa;
 
 
 
@@ -26,3 +27,16 @@ $transition: all 0.5s;
     @content;
   }
 }
+
+@mixin button {
+    background-color: $color-primary;
+        border: 1px solid $color-primary;
+        &:hover {
+            background-color: $color-secondary;
+            border: 1px solid $color-secondary;
+        }
+
+        a {
+            color: white;
+        }
+    }

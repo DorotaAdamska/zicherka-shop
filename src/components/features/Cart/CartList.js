@@ -15,18 +15,18 @@ class CartList extends React.Component {
   }
 
 
-  render() {
+ render() {
     const { products, edit } = this.props;
 
     return (
-      <tbody>
+      <tbody className='cart-products-list'>
         {products.map((item, index) => <tr key={index}>
           <th scope="row">{index+1}</th>
           <td>{item.product.name}</td>
           <td className="text-right">{item.product.price}</td>
           <td>
             {edit ? <Button onClick={() => this.productRemove(item.product.id)} size="sm">-</Button> : ``}
-            <span className="px-2">{item.quantity}</span>
+            <span className="items-quantity">{item.quantity}</span>
             {edit ? <Button onClick={() => this.productAdd(item.product.id)} size="sm">+</Button> : ``}
           </td>
           <td className="text-right">{Math.round(parseFloat(item.quantity) * parseFloat(item.product.price) * 100) / 100}</td>

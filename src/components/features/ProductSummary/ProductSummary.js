@@ -9,14 +9,13 @@ const ProductSummary = ({ name, price, additionalInfo, image, currency, id}) => 
     <div className={'product-summary'}>
         <Card>
             <CardBody>
-            <CardText>{additionalInfo}</CardText>
+            <CardText className={'additional-info'}>{additionalInfo}</CardText>
             </CardBody>
             <CardImg src={image}/>
             <CardBody>   
                 <CardTitle>{name}</CardTitle>
                 <CardText>{price} {currency}</CardText>
-                <Button variant="primary"><Link to={`/product/${id}`}>Read more</Link></Button>
-
+                <Button><Link to={`/product/${id}`}>Read more</Link></Button>
             </CardBody>
         </Card>
     </div>
