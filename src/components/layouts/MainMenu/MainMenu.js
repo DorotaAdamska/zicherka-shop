@@ -6,7 +6,7 @@ import './MainMenu.scss';
 
 const MainMenu = ({ links, location }) => (
   <ul className="main-menu">
-    { links.map((link, index) =>
+    {links.map((link, index) =>
       <li key={index}>
         <Link className={(location.pathname === link.path && 'active') || ''} to={link.path}>{link.title}</Link>
       </li>
@@ -21,4 +21,4 @@ MainMenu.propTypes = {
   })),
 };
 
-export default withRouter(props => <MainMenu {...props}/>);
+export default withRouter(props => <MainMenu {...props} />);

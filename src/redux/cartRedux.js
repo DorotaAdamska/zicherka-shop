@@ -32,7 +32,7 @@ export const resetRequest = () => ({ type: RESET_REQUEST });
 const initialState = {
   products: [],
   total: 0,
-  discount: 0, 
+  discount: 0,
   discountAmount: 0,
   discountCode: null,
   request: {
@@ -52,14 +52,14 @@ export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
     case ADD_PRODUCT:
 
-    const product = products.find((item) => item.id === action.payload);
+      const product = products.find((item) => item.id === action.payload);
 
       //jeśli produkt jest w koszyku
       productInCart = statePart.products.find((item) => item.product.id === action.payload);
-      if(productInCart) {
+      if (productInCart) {
         const newQuantity = productInCart.quantity + 1;
         newProducts = statePart.products.map((item) => {
-          if(item.product.id === productInCart.product.id) {
+          if (item.product.id === productInCart.product.id) {
             item.quantity = newQuantity;
           }
           return item;
@@ -88,20 +88,19 @@ export default function reducer(statePart = initialState, action = {}) {
         };
       }
     case REMOVE_PRODUCT:
-      
+
       productInCart = statePart.products.find((item) => item.product.id === action.payload);
       const newQuantity = productInCart.quantity - 1;
       //gdy jest więcej niz 1 typ danego produktu w koszyku
-      if(newQuantity > 0) {
+      if (newQuantity > 0) {
         newProducts = statePart.products.map((item) => {
-          if(item.product.id === productInCart.product.id) {
+          if (item.product.id === productInCart.product.id) {
             item.quantity = newQuantity;
           }
           return item;
         });
       }
-      else
-      {
+      else {
         //gdy ilość = 1 - całkowite usunięcie produktu z koszyka
         newProducts = statePart.products.filter((item) => {
           return item.product.id !== productInCart.product.id;
@@ -115,13 +114,13 @@ export default function reducer(statePart = initialState, action = {}) {
         total: newTotal,
         discountAmount: newDiscountAmount
       }
-    
+
     case ADD_DISCOUNT_CODE:
       const newDiscountCode = action.payload !== '' ? action.payload : null;
       let newDiscount = 0;
       //czy podany kod jest prawidlowy
       const validCode = discounts.find(item => item.code === newDiscountCode);
-      if(validCode) {
+      if (validCode) {
         newDiscount = validCode.discount;
       }
       //wyliczenie kwoty rabatu

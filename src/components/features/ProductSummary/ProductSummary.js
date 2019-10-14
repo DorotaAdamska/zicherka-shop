@@ -5,17 +5,17 @@ import './ProductSummary.scss';
 import { Link } from 'react-router-dom';
 
 
-const ProductSummary = ({ name, price, additionalInfo, image, currency, id}) => (
+const ProductSummary = ({ name, price, additionalInfo, image, currency, id }) => (
     <div className={'product-summary'}>
         <Card>
             <CardBody>
-            <CardText className={'additional-info'}>{additionalInfo}</CardText>
+                <CardText className={'additional-info'}>{additionalInfo}</CardText>
             </CardBody>
-            <CardImg src={image}/>
-            <CardBody>   
+            <CardImg src={image} />
+            <CardBody>
                 <CardTitle>{name}</CardTitle>
                 <CardText>{price} {currency}</CardText>
-                <Button><Link to={`/product/${id}`}>Read more</Link></Button>
+                <Button><Link to={`/product/${id}`}>PEŁNY OPIS</Link></Button>
             </CardBody>
         </Card>
     </div>

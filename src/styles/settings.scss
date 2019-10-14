@@ -31,6 +31,8 @@ $transition: all 0.5s;
 @mixin button {
     background-color: $color-primary;
         border: 1px solid $color-primary;
+        border-radius: 5px;
+        height: 2em;
         &:hover {
             background-color: $color-secondary;
             border: 1px solid $color-secondary;
@@ -38,5 +40,14 @@ $transition: all 0.5s;
 
         a {
             color: white;
+            margin: $base-size;
+            font-size: 0.8em;
         }
     }
+
+@mixin button_hover {
+  color: white;
+                font-size: 0.8em;
+                cursor: pointer;
+                min-height: 40px;
+}

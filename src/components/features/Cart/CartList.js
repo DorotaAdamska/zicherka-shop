@@ -15,16 +15,16 @@ class CartList extends React.Component {
   }
 
 
- render() {
+  render() {
     const { products, edit } = this.props;
 
     return (
       <tbody className='cart-products-list'>
         {products.map((item, index) => <tr key={index}>
-          <th scope="row">{index+1}</th>
+          <th scope="row">{index + 1}</th>
           <td>{item.product.name}</td>
           <td className="text-right">{item.product.price}</td>
-          <td>
+          <td className='quantity'>
             {edit ? <Button onClick={() => this.productRemove(item.product.id)} size="sm">-</Button> : ``}
             <span className="items-quantity">{item.quantity}</span>
             {edit ? <Button onClick={() => this.productAdd(item.product.id)} size="sm">+</Button> : ``}

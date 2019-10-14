@@ -27,15 +27,34 @@ a, a:hover, a:visited {
 h3 {
   padding-left: $base-size;
   padding-bottom: $base-size;
+  font-weight: 300;
+  font-size: 2em;
 }
 
 .alert-info{
-color: $color-text-light;
+color: white;
+background-color: $color-primary;
+opacity: 0.5;
+border: 1 px solid $color-primary;
+border-radius: $radius;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .content {
   padding: $base-size;
 }
 
+.text-left {
+  text-align: left;
+  padding-left: $base-size;
+}
+
+.text-right {
+  text-align: right;
+  padding-right: $base-size;
+}
 
 @import './typography.scss';

@@ -14,8 +14,7 @@ class NavBar extends React.Component {
                 { path: '/faq', title: 'FAQ' },
                 { path: '/regulamin', title: 'Regulamin' },
                 { path: '/kontakt', title: 'Kontakt' },
-                { path: '/cart', title: <FontAwesomeIcon
-                icon={faShoppingBasket} />}
+                { path: '/cart', title: <FontAwesomeIcon icon={faShoppingBasket} />}
             ]
         };
     }

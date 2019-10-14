@@ -5,6 +5,7 @@ import { Alert, Card, CardImg, CardText, CardBody, CardTitle, Button, } from 're
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './SingleProduct.scss';
 
+
 class SingleProduct extends React.Component {
 
     constructor(props) {
@@ -47,15 +48,15 @@ class SingleProduct extends React.Component {
                             <CardText>{product.info}</CardText>
                             <CardText className='additional-info'>{product.additionalInfo}</CardText>
                             <CardText>{product.price} {product.currency}</CardText>
-                            <Button onClick={() => this.addToCart()}>Dodaj do koszyka</Button>
+                            <Button onClick={() => this.addToCart()}>DODAJ DO KOSZYKA</Button>
                         </CardBody>
                     </Card>
-                    <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                    <Modal className='modal' isOpen={this.state.modal} toggle={this.toggleModal}>
                         <ModalBody>
                             Produkt został dodany do koszyka
-            </ModalBody>
+                        </ModalBody>
                         <ModalFooter>
-                            <Button onClick={this.toggleModal}>Zamknij</Button>
+                            <Button onClick={this.toggleModal}>ZAMKNIJ</Button>
                         </ModalFooter>
                     </Modal>
                 </div>

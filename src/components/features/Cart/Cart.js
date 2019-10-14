@@ -18,8 +18,7 @@ class Cart extends React.Component {
   componentWillUnmount() {
     const { showOrderConfirmation } = this.state;
 
-    //wyczyszczenie koszyka
-    if(showOrderConfirmation) {
+    if (showOrderConfirmation) {
       this.setState({ showOrderConfirmation: false });
     }
   }
@@ -63,38 +62,36 @@ class Cart extends React.Component {
     const { showDiscountForm, discountCode, showOrderConfirmation } = this.state;
 
     let content = '';
-    if(products.length === 0) {
+    if (products.length === 0) {
       content = <Alert color="info">Koszyk jest pusty</Alert>;
     }
-    else
-    {
+    else {
       let discountText = 'Brak';
       let discountButton = !showOrderConfirmation ? <Button onClick={(e) => this.handleDiscountCodeForm(e)} size="sm">+</Button> : ``;
       let discountShortcut = '';
 
-      if(showDiscountForm) {
-        discountText = <Input
+      if (showDiscountForm) {
+        discountText = 
+        <Input
           type="text"
           name="discountCode"
           id="discountCode"
           placeholder="Wprowadź kod"
           bsSize="sm"
-          className="ml-auto"
+          className="discount"
           onChange={(e) => this.handleChangeDiscountCode(e)}
           value={discountCode}
         />
         discountButton = <Button onClick={() => this.handleAddDiscountCode()} size="sm">ZATWIERDŹ</Button>;
       }
-      else
-      {
-        if(cart.discountCode && cart.discount > 0) {
+      else {
+        if (cart.discountCode && cart.discount > 0) {
           discountText = cart.discountAmount;
           discountButton = !showOrderConfirmation ? <Button onClick={() => this.handleRemoveDiscountCode()} size="sm" color="danger" title="Usuń kod rabatowy">×</Button> : ``;
           discountShortcut = ` (${cart.discountCode} - ${cart.discount}%)`;
         }
-        else
-        {
-          if(cart.discountCode && cart.discount === 0) {  
+        else {
+          if (cart.discountCode && cart.discount === 0) {
             discountText = 'Nieprawidłowy kod';
           }
         }
@@ -133,7 +130,7 @@ class Cart extends React.Component {
                     :
                   </td>
                   <td className="text-right">
-                      {discountText}
+                    {discountText}
                   </td>
                   <td className="text-right">
                     {discountButton}
@@ -150,10 +147,10 @@ class Cart extends React.Component {
         </Row>
         <Row>
           <Col>
-            { showOrderConfirmation ?
-              <Alert color="info">Twoje zamówienie zostało przekazane do realizacji</Alert> :
+            {showOrderConfirmation ?
+              <Alert className='alert-info' color="info">Twoje zamówienie zostało przekazane do realizacji</Alert> :
               <div className="text-right">
-                <Button onClick={() => this.handleOrderConfirmation()} size="lg">Zapłać</Button>
+                <Button onClick={() => this.handleOrderConfirmation()} size="lg">ZAPŁAĆ</Button>
               </div>
             }
           </Col>

@@ -8,9 +8,9 @@ export const products = [
         price: 45,
         currency: "PLN",
         items: [
-            {src:'/images/products/1/folk.jpg'},
-            {src:'/images/products/1/folk_1.jpg'},
-            {src:'/images/products/1/folk_2.jpg'},
+            {src:'data:images/products/1/folk.jpg'},
+            {src:'data:images/products/1/folk_1.jpg'},
+            {src:'data:images/products/1/folk_2.jpg'},
         ]
     },
     {

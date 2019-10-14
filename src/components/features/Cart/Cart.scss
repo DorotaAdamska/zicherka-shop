@@ -3,29 +3,48 @@
 .cart {
     padding: 2*$base-size;
 
-
-    table {
-background-color: $color-background-grey;
-color: $color-text;
+    .row {
+        padding: $base-size 0;
     
-thead {
-    background-color: $color-primary;
-    color: white;  
-}
+        button {
+            @include button;
+            @include button_hover;
+        }
 
-.btn-secondary {
-    @include button
-}
-.cart-summary {
-    font-weight: bold;
-}
+        table {
+            background-color: $color-background-grey;
+            color: $color-text;
+            width: 100%;
+        
+            thead {
+                background-color: $color-primary;
+                color: white;  
+            }
 
-.items-quantity {
-    margin: 0 $base-size;
-}
+            .btn-secondary {
+                @include button
+            }
+
+            .cart-summary {
+                font-weight: bold;
+            }
+
+            .quantity {
+                padding-left: $base-size;
+            }
+
+            .items-quantity {
+                margin: 0 $base-size;
+            }
+
+            button {
+                @include button_hover;
+                @include button;
+            }
+        }
+
+        .btn-secondary {
+            @include button
+        } 
     }
-
-    .btn-secondary {
-        @include button
-    } 
 }

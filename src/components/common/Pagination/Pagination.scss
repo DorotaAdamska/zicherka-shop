@@ -1,22 +1,23 @@
 @import 'src/styles/settings.scss';
 
 .pagination {
-    margin: 0 $base-size;
-    float: right;
+  margin: 0 $base-size;
+  display: flex;
+  justify-content: flex-end;
+
+  .pagination-list {
+    display: flex;
+    font-size: $base-size * 1.5;
   
-    .pagination-list {
+    .pagination-list-item {
+      display: block;
+      margin: $base-size;
       display: flex;
-      font-size: $base-size * 1.5;
-  
-      .pagination-list-item {
-        display: block;
-        margin: $base-size;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: $radius;
-        transition: .2s;
-        color: $color-text-light;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: $radius;
+      transition: .2s;
+      color: $color-text-light;
   
         &:hover {
           color: $color-primary;
@@ -25,8 +26,8 @@
         &-active {
           color: $color-primary;
         }
-      }
-  
     }
+  
   }
+}
  
